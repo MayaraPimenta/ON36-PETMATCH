@@ -1,0 +1,2 @@
+export const ONG_REPOSITORY = 'ONG_REPOSITORY';
+export const DATA_SOURCE = 'DATA_SOURCE';

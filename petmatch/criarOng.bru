@@ -1,0 +1,27 @@
+meta {
+  name: criarOng
+  type: http
+  seq: 2
+}
+
+post {
+  url: http://localhost:3000/ong/criar
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "nome": "Ong Teste 6",
+    "endereco": {
+      "rua": "rua",
+      "numero": 456,
+      "bairro": "bairro",
+      "cidade": "cidade",
+      "estado": "Espírito Santo",
+      "pais": "Brasil"
+    },
+    "telefone": "99998888",
+    "cnpj": "12345678912346"
+  }
+}
