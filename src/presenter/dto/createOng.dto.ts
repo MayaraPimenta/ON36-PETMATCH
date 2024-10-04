@@ -1,18 +1,18 @@
 import { IsString, Length, ValidateNested } from 'class-validator';
 import { Type } from 'class-transformer';
-import { Endereco } from '../../common/endereco';
-import { EnderecoDto } from './endereco.dto';
+import { Address } from '../../common/address';
+import { AddressDto } from './address.dto';
 
 export class CreateOngDto {
   @IsString()
-  nome: string;
+  name: string;
 
   @ValidateNested()
-  @Type(() => EnderecoDto)
-  endereco: Endereco;
+  @Type(() => AddressDto)
+  address: Address;
 
   @IsString()
-  telefone: string;
+  phone: string;
 
   @IsString()
   @Length(14, 14, { message: 'O CNPJ deve ter exatamente 14 caracteres.' })

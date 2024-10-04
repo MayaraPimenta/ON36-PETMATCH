@@ -1,12 +1,12 @@
-import { Endereco } from '../../common/endereco';
+import { Address } from '../../common/address';
 
 export class Ong {
   id: string;
 
   constructor(
-    public nome: string,
-    public endereco: Endereco,
-    public telefone: string,
+    public name: string,
+    public address: Address,
+    public phone: string,
     public cnpj: string,
   ) {}
 }

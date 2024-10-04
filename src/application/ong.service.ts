@@ -15,9 +15,9 @@ export class OngService implements OngServiceInterface {
     private readonly ongRepositoryInterface: OngRepositoryInterface,
   ) {}
 
-  async criar(createOngDto: CreateOngDto): Promise<Ong> {
-    const { nome, endereco, telefone, cnpj } = createOngDto;
-    const ong = new Ong(nome, endereco, telefone, cnpj);
+  async create(createOngDto: CreateOngDto): Promise<Ong> {
+    const { name, address, phone, cnpj } = createOngDto;
+    const ong = new Ong(name, address, phone, cnpj);
 
     return await this.ongRepositoryInterface.salvar(ong);
   }

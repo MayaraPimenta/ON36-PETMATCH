@@ -1,4 +1,4 @@
-import { Endereco } from '../../common/Endereco';
+import { Address } from '../../common/Address';
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity('ong')
@@ -7,13 +7,13 @@ export class Ong {
   id: string;
 
   @Column('text')
-  nome: string;
+  name: string;
 
   @Column('jsonb')
-  endereco: Endereco;
+  address: Address;
 
   @Column('text')
-  telefone: string;
+  phone: string;
 
   @Column('text')
   cnpj: string;

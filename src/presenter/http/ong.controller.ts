@@ -13,11 +13,9 @@ export class OngController {
     private readonly ongService: OngServiceInterface,
   ) {}
 
-  @Post('criar')
-  criar(@Body() createOngDto: CreateOngDto) {
-    console.log(this.ongService.criar(createOngDto));
-
-    return this.ongService.criar(createOngDto);
+  @Post()
+  create(@Body() createOngDto: CreateOngDto) {
+    return this.ongService.create(createOngDto);
   }
 
   // @Get()

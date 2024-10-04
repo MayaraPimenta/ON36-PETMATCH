@@ -15,15 +15,12 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       inject: [ConfigService],
       useFactory: async (configService: ConfigService) => ({
         type: 'postgres',
-        host: configService.get<string>('DB_HOST'),
-        port: configService.get<number>('DB_PORT'),
-        username: configService.get<string>('DB_USERNAME'),
-        password: configService.get<string>('DB_PASSWORD'),
-        database: configService.get<string>('DB_NAME'),
+        url: configService.get<string>('DB_URL'),
+        migrations: [__dirname + '/db/migrations/*.ts'],
         entities: [__dirname + '/infrastructure/entities/*{.ts,.js}'],
         synchronize: false,
-        ssl: {
-          rejectUnauthorized: false,
+        cli: {
+          migrationsDir: 'src/infrastructure/migrations',
         },
       }),
     }),
