@@ -19,7 +19,7 @@ export class OngService implements OngServiceInterface {
     const { name, address, phone, cnpj } = createOngDto;
     const ong = new Ong(name, address, phone, cnpj);
 
-    return await this.ongRepositoryInterface.salvar(ong);
+    return await this.ongRepositoryInterface.save(ong);
   }
 
   // findAll() {

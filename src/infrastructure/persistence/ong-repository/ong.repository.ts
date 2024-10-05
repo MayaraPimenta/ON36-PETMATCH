@@ -11,7 +11,7 @@ export class OngRepository implements OngRepositoryInterface {
     private ongRepository: Repository<Ong>,
   ) {}
 
-  async salvar(ong: Ong): Promise<Ong> {
+  async save(ong: Ong): Promise<Ong> {
     try {
       const response = await this.ongRepository.save(ong);
       return response;

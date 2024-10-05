@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { OngModule } from './domain/ong/ong.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { UserModule } from './domain/user/user.module';
 
 @Module({
   imports: [
@@ -16,15 +17,13 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       useFactory: async (configService: ConfigService) => ({
         type: 'postgres',
         url: configService.get<string>('DB_URL'),
-        migrations: [__dirname + '/db/migrations/*.ts'],
-        entities: [__dirname + '/infrastructure/entities/*{.ts,.js}'],
+        migrations: [__dirname + '/db/migrations/*{.ts,.js}'],
+        entities: [__dirname + '/infrastructure/entities/*.entity{.ts,.js}'],
         synchronize: false,
-        cli: {
-          migrationsDir: 'src/infrastructure/migrations',
-        },
       }),
     }),
     OngModule,
+    UserModule,
   ],
   controllers: [AppController],
   providers: [AppService],

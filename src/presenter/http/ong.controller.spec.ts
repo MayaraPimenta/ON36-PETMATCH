@@ -28,7 +28,7 @@ describe('OngController', () => {
 
   beforeEach(async () => {
     ongRepositoryMock = {
-      salvar: jest.fn(),
+      save: jest.fn(),
     };
 
     ongServiceMock = {

@@ -1,15 +1,16 @@
 import { DataSource } from 'typeorm';
 import { config } from 'dotenv';
-import { Ong } from 'src/infrastructure/entities/ong.entity';
+import { Ong } from '../infrastructure/entities/ong.entity';
+import { User } from '../infrastructure/entities/user.entity';
 
 config();
 
 export const AppDataSource = new DataSource({
   type: 'postgres',
   url: process.env.DB_URL,
-  entities: [Ong],
+  entities: [Ong, User],
   synchronize: false,
-  migrations: [__dirname + '/migrations/*.ts'],
+  migrations: [__dirname + '/migrations/*{.ts,.js}'],
   migrationsRun: true,
 });
 
