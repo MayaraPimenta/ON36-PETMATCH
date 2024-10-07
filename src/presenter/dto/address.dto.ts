@@ -3,6 +3,10 @@ import { States } from '../../common/states';
 
 export class AddressDto {
   @IsString()
+  @Length(1, 8)
+  cep: string;
+
+  @IsString()
   @Length(1, 100)
   street: string;
 

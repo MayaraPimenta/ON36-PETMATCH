@@ -1,5 +1,11 @@
-import { Address } from '../../common/Address';
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  OneToOne,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
+import { Address } from './address.entity';
 
 @Entity('ong')
 export class Ong {
@@ -9,15 +15,15 @@ export class Ong {
   @Column('text')
   name: string;
 
-  @Column('jsonb')
-  address: Address;
-
   @Column('text')
   phone: string;
 
   @Column('text')
   cnpj: string;
 
-  // @OneToMany(() => Animal, (animal) => animal.ong)
-  // animais: Animal[];
+  @OneToOne(() => Address, {
+    cascade: true,
+  })
+  @JoinColumn()
+  address: Address;
 }

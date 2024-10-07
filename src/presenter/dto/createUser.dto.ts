@@ -1,6 +1,5 @@
 import { IsString, ValidateNested } from 'class-validator';
 import { Type } from 'class-transformer';
-import { Address } from '../../common/address';
 import { AddressDto } from './address.dto';
 
 export class CreateUserDto {
@@ -9,7 +8,7 @@ export class CreateUserDto {
 
   @ValidateNested()
   @Type(() => AddressDto)
-  address: Address;
+  address: AddressDto;
 
   @IsString()
   phone: string;
