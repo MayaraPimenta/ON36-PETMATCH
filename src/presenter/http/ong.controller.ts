@@ -1,10 +1,19 @@
-import { Controller, Post, Body, Inject } from '@nestjs/common';
+import {
+  Controller,
+  Post,
+  Body,
+  Inject,
+  Get,
+  Param,
+  Put,
+  Delete,
+} from '@nestjs/common';
 import { CreateOngDto } from '../dto/createOng.dto';
 import {
   ONG_SERVICE_INTERFACE,
   OngServiceInterface,
 } from '../ports/ongService.interface';
-// import { UpdateOngDto } from '../dto/update-ong.dto';
+import { UpdateOngDto } from '../dto/updateOng.dto';
 
 @Controller('ong')
 export class OngController {
@@ -18,23 +27,23 @@ export class OngController {
     return this.ongService.create(createOngDto);
   }
 
-  // @Get()
-  // findAll() {
-  //   return this.ongService.findAll();
-  // }
+  @Get()
+  findAll() {
+    return this.ongService.findAll();
+  }
 
-  // @Get(':id')
-  // findOne(@Param('id') id: string) {
-  //   return this.ongService.findOne(+id);
-  // }
+  @Get(':id')
+  findOne(@Param('id') id: string) {
+    return this.ongService.findOne(id);
+  }
 
-  // @Patch(':id')
-  // update(@Param('id') id: string, @Body() updateOngDto: UpdateOngDto) {
-  //   return this.ongService.update(+id, updateOngDto);
-  // }
+  @Put(':id')
+  update(@Param('id') id: string, @Body() updateOngDto: UpdateOngDto) {
+    return this.ongService.update(id, updateOngDto);
+  }
 
-  // @Delete(':id')
-  // remove(@Param('id') id: string) {
-  //   return this.ongService.remove(+id);
-  // }
+  @Delete(':id')
+  remove(@Param('id') id: string) {
+    return this.ongService.remove(id);
+  }
 }

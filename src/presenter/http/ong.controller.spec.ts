@@ -15,6 +15,7 @@ describe('OngController', () => {
   const createOngDto: CreateOngDto = {
     name: 'Ong Teste 0',
     address: {
+      cep: '29167168',
       street: 'rua',
       number: 111,
       neighborhood: 'bairro',

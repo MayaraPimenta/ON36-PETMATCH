@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { CreateOngDto } from '../presenter/dto/createOng.dto';
-// import { UpdateOngDto } from '../presenter/dto/update-ong.dto';
+import { UpdateOngDto } from '../presenter/dto/updateOng.dto';
 import { Ong } from '../domain/ong/ong';
 import { OngServiceInterface } from '../presenter/ports/ongService.interface';
 import {
@@ -22,19 +22,22 @@ export class OngService implements OngServiceInterface {
     return await this.ongRepositoryInterface.save(ong);
   }
 
-  // findAll() {
-  //   return `This action returns all ong`;
-  // }
+  async findAll(): Promise<Ong[]> {
+    return await this.ongRepositoryInterface.findAll();
+  }
 
-  // findOne(id: number) {
-  //   return `This action returns a #${id} ong`;
-  // }
+  async findOne(id: string): Promise<Ong> {
+    return await this.ongRepositoryInterface.findOne(id);
+  }
 
-  // update(id: number, updateOngDto: UpdateOngDto) {
-  //   return `This action updates a #${id} ong`;
-  // }
+  async update(id: string, updateOngDto: UpdateOngDto): Promise<Ong> {
+    const { name, address, phone, cnpj } = updateOngDto;
+    const ong = new Ong(name, address, phone, cnpj);
 
-  // remove(id: number) {
-  //   return `This action removes a #${id} ong`;
-  // }
+    return await this.ongRepositoryInterface.update(id, ong);
+  }
+
+  async remove(id: string) {
+    return await this.ongRepositoryInterface.remove(id);
+  }
 }
