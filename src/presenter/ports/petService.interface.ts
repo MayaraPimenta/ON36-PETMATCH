@@ -1,12 +1,13 @@
 import { Pet } from '../../domain/pet/pet';
 import { CreatePetDto } from '../dto/createPet.dto';
+import { UpdatePetDto } from '../dto/updatePet.dto';
 
 export interface PetServiceInterface {
   create(createPetDto: CreatePetDto): Promise<Pet>;
-  // findAll(): Promise<User[]>;
-  // findOne(id: string): Promise<User>;
-  // update(id: string, updateUserDto: UpdateUserDto): Promise<User>;
-  // remove(id: string);
+  findAll(): Promise<Pet[]>;
+  findOne(id: string): Promise<Pet>;
+  update(id: string, updatePetDto: UpdatePetDto): Promise<Pet>;
+  remove(id: string);
 }
 
 export const PET_SERVICE_INTERFACE = Symbol();

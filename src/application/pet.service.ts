@@ -7,7 +7,7 @@ import {
   PetRepositoryInterface,
 } from '../infrastructure/ports/petRepository.interface';
 import { OngRepository } from '../infrastructure/persistence/ong-repository/ong.repository';
-// import { UpdatePetDto } from '../presenter/dto/updatePet.dto';
+import { UpdatePetDto } from '../presenter/dto/updatePet.dto';
 
 @Injectable()
 export class PetService implements PetServiceInterface {
@@ -37,19 +37,34 @@ export class PetService implements PetServiceInterface {
     return await this.petRepositoryInterface.save(pet);
   }
 
-  // findAll() {
-  //   return `This action returns all pet`;
-  // }
+  async findAll(): Promise<Pet[]> {
+    return await this.petRepositoryInterface.findAll();
+  }
 
-  // findOne(id: number) {
-  //   return `This action returns a #${id} pet`;
-  // }
+  async findOne(id: string): Promise<Pet> {
+    return await this.petRepositoryInterface.findOne(id);
+  }
 
-  // update(id: number, updatePetDto: UpdatePetDto) {
-  //   return `This action updates a #${id} pet`;
-  // }
+  async update(id: string, updatePetDto: UpdatePetDto): Promise<Pet> {
+    const ong = await this.ongRepository.findOne(updatePetDto.ongId);
 
-  // remove(id: number) {
-  //   return `This action removes a #${id} pet`;
-  // }
+    if (!ong) {
+      throw new Error('Ong não encontrada');
+    }
+    const pet = new Pet(
+      updatePetDto.name,
+      updatePetDto.size,
+      updatePetDto.species,
+      updatePetDto.vaccinated,
+      updatePetDto.neutered,
+      updatePetDto.age,
+      ong,
+    );
+
+    return await this.petRepositoryInterface.update(id, pet);
+  }
+
+  async remove(id: string) {
+    return await this.petRepositoryInterface.remove(id);
+  }
 }
