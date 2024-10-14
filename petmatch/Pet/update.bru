@@ -1,0 +1,24 @@
+meta {
+  name: update
+  type: http
+  seq: 4
+}
+
+put {
+  url: http://localhost:3000/pet/d66ffa46-fff0-4358-b45a-d591585dac8b
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "name": "Pet 1",
+    "species": "cachorro",
+    "size": "grande",
+    "vaccinated": true,
+    "neutered": false,
+    "age": 2,
+    "ongId": "2ab5dfc1-26a5-4f1c-835c-f2af5d60c87e",
+    "userId": "c170389e-a872-4135-b68d-aae827926c89"
+  }s
+}

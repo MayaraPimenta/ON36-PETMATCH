@@ -1,0 +1,27 @@
+meta {
+  name: updateUser
+  type: http
+  seq: 4
+}
+
+put {
+  url: http://localhost:3000/user/e9d0a906-d011-41ff-a76a-78d9d036f00f
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "name": "Usuário 4.1",
+    "address": {
+      "cep": "29167168",
+      "street": "rua",
+      "number": 111,
+      "neighborhood": "bairro",
+      "city": "cidade",
+      "state": "Espírito Santo",
+      "country": "Brasil"
+    },
+    "phone": "99998888"
+  }
+}

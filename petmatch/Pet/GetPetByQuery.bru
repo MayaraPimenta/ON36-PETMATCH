@@ -1,0 +1,17 @@
+meta {
+  name: GetPetByQuery
+  type: http
+  seq: 6
+}
+
+get {
+  url: http://localhost:3000/pet/search?species=cachorro&size=pequeno&age=filhote
+  body: none
+  auth: none
+}
+
+query {
+  species: cachorro
+  size: pequeno
+  age: filhote
+}

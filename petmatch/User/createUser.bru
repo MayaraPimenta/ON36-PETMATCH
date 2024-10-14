@@ -1,0 +1,27 @@
+meta {
+  name: createUser
+  type: http
+  seq: 1
+}
+
+post {
+  url: http://localhost:3000/user
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "name": "Usuário 4",
+    "address": {
+      "cep": "29167168",
+      "street": "rua",
+      "number": 111,
+      "neighborhood": "bairro",
+      "city": "cidade",
+      "state": "Espírito Santo",
+      "country": "Brasil"
+    },
+    "phone": "99998888"
+  }
+}

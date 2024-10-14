@@ -1,0 +1,28 @@
+meta {
+  name: createOng
+  type: http
+  seq: 1
+}
+
+post {
+  url: http://localhost:3000/ong
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "name": "Ong Teste 1",
+    "address": {
+      "cep": "29167168",
+      "street": "rua",
+      "number": 111,
+      "neighborhood": "bairro",
+      "city": "cidade",
+      "state": "Espírito Santo",
+      "country": "Brasil"
+    },
+    "phone": "99998888",
+    "cnpj": "12345678912346"
+  }
+}
