@@ -19,6 +19,8 @@ import { Ong } from 'src/infrastructure/entities/ong.entity';
       provide: ONG_REPOSITORY_INTERFACE,
       useClass: OngRepository,
     },
+    OngRepository,
   ],
+  exports: [OngRepository],
 })
 export class OngModule {}

@@ -2,10 +2,12 @@ import {
   Column,
   Entity,
   JoinColumn,
+  OneToMany,
   OneToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { Address } from './address.entity';
+import { Pet } from './pet.entity';
 
 @Entity('user')
 export class User {
@@ -23,4 +25,7 @@ export class User {
   })
   @JoinColumn()
   address: Address;
+
+  @OneToMany(() => Pet, (pet) => pet.user, { nullable: true })
+  pets: Pet[];
 }

@@ -5,6 +5,7 @@ import { OngModule } from './domain/ong/ong.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserModule } from './domain/user/user.module';
+import { PetModule } from './domain/pet/pet.module';
 
 @Module({
   imports: [
@@ -24,6 +25,7 @@ import { UserModule } from './domain/user/user.module';
     }),
     OngModule,
     UserModule,
+    PetModule,
   ],
   controllers: [AppController],
   providers: [AppService],

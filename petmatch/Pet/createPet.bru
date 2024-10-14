@@ -1,0 +1,23 @@
+meta {
+  name: createPet
+  type: http
+  seq: 1
+}
+
+post {
+  url: http://localhost:3000/pet
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "name": "Pet 1",
+    "species": "cachorro",
+    "size": "médio",
+    "vaccinated": true,
+    "neutered": false,
+    "age": 1,
+    "ongId": "2ab5dfc1-26a5-4f1c-835c-f2af5d60c87e"
+  }
+}
