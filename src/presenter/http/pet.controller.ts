@@ -43,6 +43,16 @@ export class PetController {
     return this.petService.getAttributes();
   }
 
+  @Get('ong/:ongId')
+  getPetsByOng(@Param('ongId') ongId: string) {
+    return this.petService.getPetsByOng(ongId);
+  }
+
+  @Get('user/:userId')
+  getPetsByUser(@Param('userId') userId: string) {
+    return this.petService.getPetsByUser(userId);
+  }
+
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.petService.findOne(id);

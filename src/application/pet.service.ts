@@ -59,6 +59,14 @@ export class PetService implements PetServiceInterface {
     return attributes;
   }
 
+  async getPetsByOng(id: string): Promise<Pet[]> {
+    return await this.petRepositoryInterface.getPetsByOng(id);
+  }
+
+  async getPetsByUser(userId: string): Promise<Pet[]> {
+    return await this.petRepositoryInterface.getPetsByUser(userId);
+  }
+
   async findOne(id: string): Promise<Pet> {
     return await this.petRepositoryInterface.findOne(id);
   }

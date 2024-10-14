@@ -23,7 +23,7 @@ export class PetRepository implements PetRepositoryInterface {
   async findAll(): Promise<Pet[]> {
     try {
       const response = await this.petRepository.find({
-        relations: ['ong'],
+        relations: ['ong', 'user'],
       });
       return response;
     } catch (error) {
@@ -45,6 +45,28 @@ export class PetRepository implements PetRepositoryInterface {
       });
 
       return response;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  async getPetsByOng(ongId: string): Promise<Pet[]> {
+    try {
+      const queryBuilder = await this.petRepository.createQueryBuilder('pet');
+      queryBuilder.where('pet.ongId = :ongId', { ongId });
+
+      return queryBuilder.getMany();
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  async getPetsByUser(userId: string): Promise<Pet[]> {
+    try {
+      const queryBuilder = await this.petRepository.createQueryBuilder('pet');
+      queryBuilder.where('pet.userId = :userId', { userId });
+
+      return queryBuilder.getMany();
     } catch (error) {
       throw error;
     }
