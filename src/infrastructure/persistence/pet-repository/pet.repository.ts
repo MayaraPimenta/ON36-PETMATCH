@@ -63,7 +63,26 @@ export class PetRepository implements PetRepositoryInterface {
       queryBuilder.andWhere('pet.size = :size', { size: query.size });
     }
 
-    console.log(queryBuilder.getMany());
+    if (query.age) {
+      switch (query.age) {
+        case 'filhote':
+          queryBuilder.andWhere('pet.age BETWEEN :minAge AND :maxAge', {
+            minAge: 0,
+            maxAge: 2,
+          });
+          break;
+        case 'idoso':
+          queryBuilder.andWhere('pet.age >= :age', { age: 7 });
+          break;
+
+        default:
+          queryBuilder.andWhere('pet.age BETWEEN :minAge AND :maxAge', {
+            minAge: 3,
+            maxAge: 7,
+          });
+          break;
+      }
+    }
 
     return await queryBuilder.getMany();
   }

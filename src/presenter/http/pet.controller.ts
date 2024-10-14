@@ -38,6 +38,11 @@ export class PetController {
     return this.petService.findPetsByQuery(query);
   }
 
+  @Get('attributes')
+  getAttributes() {
+    return this.petService.getAttributes();
+  }
+
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.petService.findOne(id);

@@ -6,8 +6,8 @@ import {
   IsString,
   IsUUID,
 } from 'class-validator';
-import { Size } from '../../common/pets/size';
-import { Species } from '../../common/pets/species';
+import { Size } from '../../domain/pet/enum/size';
+import { Species } from '../../domain/pet/enum/species';
 
 export class CreatePetDto {
   @IsString()

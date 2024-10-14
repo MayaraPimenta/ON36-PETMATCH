@@ -9,6 +9,8 @@ import {
 import { OngRepository } from '../infrastructure/persistence/ong-repository/ong.repository';
 import { UpdatePetDto } from '../presenter/dto/updatePet.dto';
 import { UserRepository } from '../infrastructure/persistence/user-repository/user.repository';
+import { Size } from '../domain/pet/enum/size';
+import { Species } from '../domain/pet/enum/species';
 
 @Injectable()
 export class PetService implements PetServiceInterface {
@@ -43,12 +45,22 @@ export class PetService implements PetServiceInterface {
     return await this.petRepositoryInterface.findAll();
   }
 
-  async findOne(id: string): Promise<Pet> {
-    return await this.petRepositoryInterface.findOne(id);
-  }
-
   async findPetsByQuery(query: any): Promise<Pet[]> {
     return await this.petRepositoryInterface.findPetsByQuery(query);
+  }
+
+  async getAttributes(): Promise<object[]> {
+    const sizes = Object.values(Size);
+    const species = Object.values(Species);
+    const ages = ['filhote', 'adulto', 'idoso'];
+
+    const attributes = [{ sizes: sizes }, { species: species }, { ages: ages }];
+
+    return attributes;
+  }
+
+  async findOne(id: string): Promise<Pet> {
+    return await this.petRepositoryInterface.findOne(id);
   }
 
   async update(id: string, updatePetDto: UpdatePetDto): Promise<Pet> {

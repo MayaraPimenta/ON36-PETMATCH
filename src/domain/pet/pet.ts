@@ -1,5 +1,5 @@
-import { Size } from '../../common/pets/size';
-import { Species } from '../../common/pets/species';
+import { Size } from './enum/size';
+import { Species } from './enum/species';
 import { Ong } from '../ong/ong';
 import { User } from '../user/user';
 

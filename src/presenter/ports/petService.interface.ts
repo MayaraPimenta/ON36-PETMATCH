@@ -5,8 +5,9 @@ import { UpdatePetDto } from '../dto/updatePet.dto';
 export interface PetServiceInterface {
   create(createPetDto: CreatePetDto): Promise<Pet>;
   findAll(): Promise<Pet[]>;
-  findOne(id: string): Promise<Pet>;
   findPetsByQuery(query: any): Promise<Pet[]>;
+  getAttributes(): Promise<object[]>;
+  findOne(id: string): Promise<Pet>;
   update(id: string, updatePetDto: UpdatePetDto): Promise<Pet>;
   remove(id: string);
 }
