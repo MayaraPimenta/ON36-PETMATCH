@@ -6,6 +6,7 @@ export interface PetServiceInterface {
   create(createPetDto: CreatePetDto): Promise<Pet>;
   findAll(): Promise<Pet[]>;
   findOne(id: string): Promise<Pet>;
+  findPetsByQuery(query: any): Promise<Pet[]>;
   update(id: string, updatePetDto: UpdatePetDto): Promise<Pet>;
   remove(id: string);
 }

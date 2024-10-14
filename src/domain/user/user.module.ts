@@ -19,6 +19,8 @@ import { User } from '../../infrastructure/entities/user.entity';
       provide: USER_REPOSITORY_INTERFACE,
       useClass: UserRepository,
     },
+    UserRepository,
   ],
+  exports: [UserRepository],
 })
 export class UserModule {}

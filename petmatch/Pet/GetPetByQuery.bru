@@ -1,0 +1,16 @@
+meta {
+  name: GetPetByQuery
+  type: http
+  seq: 6
+}
+
+get {
+  url: http://localhost:3000/pet/search?species=gato&size=pequeno
+  body: none
+  auth: none
+}
+
+query {
+  species: gato
+  size: pequeno
+}

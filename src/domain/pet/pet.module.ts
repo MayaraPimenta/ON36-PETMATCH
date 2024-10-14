@@ -7,9 +7,10 @@ import { PET_REPOSITORY_INTERFACE } from '../../infrastructure/ports/petReposito
 import { PetRepository } from '../../infrastructure/persistence/pet-repository/pet.repository';
 import { Pet } from '../../infrastructure/entities/pet.entity';
 import { OngModule } from '../ong/ong.module';
+import { UserModule } from '../user/user.module';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Pet]), OngModule],
+  imports: [TypeOrmModule.forFeature([Pet]), OngModule, UserModule],
   controllers: [PetController],
   providers: [
     {

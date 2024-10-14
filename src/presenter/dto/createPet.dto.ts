@@ -1,4 +1,11 @@
-import { IsBoolean, IsEnum, IsNumber, IsString, IsUUID } from 'class-validator';
+import {
+  IsBoolean,
+  IsEnum,
+  IsNumber,
+  IsOptional,
+  IsString,
+  IsUUID,
+} from 'class-validator';
 import { Size } from '../../common/pets/size';
 import { Species } from '../../common/pets/species';
 
@@ -6,6 +13,7 @@ export class CreatePetDto {
   @IsString()
   name: string;
 
+  @IsOptional()
   @IsEnum(Size)
   size: Size;
 
@@ -23,4 +31,8 @@ export class CreatePetDto {
 
   @IsUUID()
   ongId: string;
+
+  @IsOptional()
+  @IsUUID()
+  userId: string;
 }

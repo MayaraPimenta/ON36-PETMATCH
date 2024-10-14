@@ -50,6 +50,24 @@ export class PetRepository implements PetRepositoryInterface {
     }
   }
 
+  async findPetsByQuery(query: any): Promise<Pet[]> {
+    const queryBuilder = this.petRepository.createQueryBuilder('pet');
+
+    if (query.species) {
+      queryBuilder.andWhere('pet.species = :species', {
+        species: query.species,
+      });
+    }
+
+    if (query.size) {
+      queryBuilder.andWhere('pet.size = :size', { size: query.size });
+    }
+
+    console.log(queryBuilder.getMany());
+
+    return await queryBuilder.getMany();
+  }
+
   async update(id: string, pet: Pet): Promise<Pet> {
     try {
       const entity = await this.petRepository.findOneBy({ id: id });

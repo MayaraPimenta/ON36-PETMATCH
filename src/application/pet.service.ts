@@ -8,6 +8,7 @@ import {
 } from '../infrastructure/ports/petRepository.interface';
 import { OngRepository } from '../infrastructure/persistence/ong-repository/ong.repository';
 import { UpdatePetDto } from '../presenter/dto/updatePet.dto';
+import { UserRepository } from '../infrastructure/persistence/user-repository/user.repository';
 
 @Injectable()
 export class PetService implements PetServiceInterface {
@@ -15,6 +16,7 @@ export class PetService implements PetServiceInterface {
     @Inject(PET_REPOSITORY_INTERFACE)
     private readonly petRepositoryInterface: PetRepositoryInterface,
     private readonly ongRepository: OngRepository,
+    private readonly userRepository: UserRepository,
   ) {}
 
   async create(createPetDto: CreatePetDto): Promise<Pet> {
@@ -45,12 +47,35 @@ export class PetService implements PetServiceInterface {
     return await this.petRepositoryInterface.findOne(id);
   }
 
+  async findPetsByQuery(query: any): Promise<Pet[]> {
+    return await this.petRepositoryInterface.findPetsByQuery(query);
+  }
+
   async update(id: string, updatePetDto: UpdatePetDto): Promise<Pet> {
     const ong = await this.ongRepository.findOne(updatePetDto.ongId);
-
     if (!ong) {
       throw new Error('Ong não encontrada');
     }
+
+    if (!updatePetDto.userId) {
+      const pet = new Pet(
+        updatePetDto.name,
+        updatePetDto.size,
+        updatePetDto.species,
+        updatePetDto.vaccinated,
+        updatePetDto.neutered,
+        updatePetDto.age,
+        ong,
+      );
+
+      return await this.petRepositoryInterface.update(id, pet);
+    }
+
+    const user = await this.userRepository.findOne(updatePetDto.userId);
+    if (!user) {
+      throw new Error('Ong não encontrada');
+    }
+
     const pet = new Pet(
       updatePetDto.name,
       updatePetDto.size,
@@ -59,6 +84,7 @@ export class PetService implements PetServiceInterface {
       updatePetDto.neutered,
       updatePetDto.age,
       ong,
+      user,
     );
 
     return await this.petRepositoryInterface.update(id, pet);

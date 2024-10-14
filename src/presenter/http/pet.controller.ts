@@ -7,6 +7,7 @@ import {
   Param,
   Put,
   Delete,
+  Query,
 } from '@nestjs/common';
 import { CreatePetDto } from '../dto/createPet.dto';
 import {
@@ -30,6 +31,11 @@ export class PetController {
   @Get()
   findAll() {
     return this.petService.findAll();
+  }
+
+  @Get('search')
+  findPetsByQuery(@Query() query: any) {
+    return this.petService.findPetsByQuery(query);
   }
 
   @Get(':id')

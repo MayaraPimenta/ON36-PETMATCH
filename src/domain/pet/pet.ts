@@ -1,6 +1,7 @@
 import { Size } from '../../common/pets/size';
 import { Species } from '../../common/pets/species';
 import { Ong } from '../ong/ong';
+import { User } from '../user/user';
 
 export class Pet {
   id: string;
@@ -13,5 +14,6 @@ export class Pet {
     public neutered: boolean,
     public age: number,
     public ong: Ong,
+    public user?: User,
   ) {}
 }

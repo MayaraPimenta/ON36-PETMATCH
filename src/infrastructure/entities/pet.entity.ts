@@ -13,7 +13,7 @@ export class Pet {
   @Column()
   species: string;
 
-  @Column()
+  @Column({ nullable: true })
   size: string;
 
   @Column()
