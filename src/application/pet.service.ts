@@ -11,6 +11,7 @@ import { UpdatePetDto } from '../presenter/dto/updatePet.dto';
 import { UserRepository } from '../infrastructure/persistence/user-repository/user.repository';
 import { Size } from '../domain/pet/enum/size';
 import { Species } from '../domain/pet/enum/species';
+import { States } from 'src/common/states';
 
 @Injectable()
 export class PetService implements PetServiceInterface {
@@ -50,11 +51,17 @@ export class PetService implements PetServiceInterface {
   }
 
   async getAttributes(): Promise<object[]> {
+    const states = Object.assign(States);
     const sizes = Object.values(Size);
     const species = Object.values(Species);
     const ages = ['filhote', 'adulto', 'idoso'];
 
-    const attributes = [{ sizes: sizes }, { species: species }, { ages: ages }];
+    const attributes = [
+      { sizes: sizes },
+      { species: species },
+      { ages: ages },
+      { states: states },
+    ];
 
     return attributes;
   }

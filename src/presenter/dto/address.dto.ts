@@ -27,11 +27,11 @@ export class AddressDto {
   @Length(1, 50)
   city: string;
 
-  @ApiProperty()
+  @ApiProperty({ example: 'ES' })
   @IsEnum(States)
   state: States;
 
-  @ApiProperty()
+  @ApiProperty({ example: 'Brasil' })
   @IsString()
   @IsIn(['Brasil'])
   country: 'Brasil';
