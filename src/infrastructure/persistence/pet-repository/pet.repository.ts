@@ -75,6 +75,15 @@ export class PetRepository implements PetRepositoryInterface {
   async findPetsByQuery(query: any): Promise<Pet[]> {
     const queryBuilder = this.petRepository.createQueryBuilder('pet');
 
+    if (query.state) {
+      queryBuilder
+        .innerJoinAndSelect('pet.ong', 'ong')
+        .innerJoinAndSelect('ong.address', 'address')
+        .where('address.state LIKE :state', {
+          state: query.state,
+        });
+    }
+
     if (query.species) {
       queryBuilder.andWhere('pet.species = :species', {
         species: query.species,

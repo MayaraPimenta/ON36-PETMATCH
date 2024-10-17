@@ -5,6 +5,7 @@ import { User } from '../user/user';
 
 export class Pet {
   id: string;
+  ongId: string;
 
   constructor(
     public name: string,
