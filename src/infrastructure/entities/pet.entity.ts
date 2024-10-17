@@ -28,6 +28,9 @@ export class Pet {
   @ManyToOne(() => Ong, (ong) => ong.pets)
   ong: Ong;
 
+  @Column()
+  ongId: string;
+
   @ManyToOne(() => User, (user) => user.pets, { nullable: true })
   user: User;
 }
