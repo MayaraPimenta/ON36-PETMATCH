@@ -9,7 +9,9 @@ async function bootstrap() {
 
   const config = new DocumentBuilder()
     .setTitle('PetMatch')
-    .setDescription('The api that makes it easy the search for a pet friend!')
+    .setDescription(
+      'A API que facilita a conexão entre tutores e animais a serem adotados',
+    )
     .setVersion('0.0.1')
     .build();
   const document = SwaggerModule.createDocument(app, config);
