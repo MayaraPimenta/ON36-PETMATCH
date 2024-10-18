@@ -115,6 +115,8 @@ export class PetRepository implements PetRepositoryInterface {
       }
     }
 
+    queryBuilder.andWhere('pet.userId IS NULL');
+
     return await queryBuilder.getMany();
   }
 
