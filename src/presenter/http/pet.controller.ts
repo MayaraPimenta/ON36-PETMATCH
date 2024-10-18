@@ -43,7 +43,13 @@ export class PetController {
   @Get('search')
   @ApiOperation({
     summary:
-      'Busca por query, exemplo: species=cachorro&size=pequeno&age=filhote',
+      'Busca por query, exemplo: estado=ES&species=cachorro&size=pequeno&age=filhote',
+  })
+  @ApiQuery({
+    name: 'state',
+    required: false,
+    description: 'Estado onde mora',
+    example: 'ES (use a sigla de um estado brasileiro)',
   })
   @ApiQuery({
     name: 'size',
