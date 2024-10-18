@@ -34,7 +34,7 @@ export class OngRepository implements OngRepositoryInterface {
       const entity = await this.ongRepository.findOneBy({ id: id });
 
       if (!entity) {
-        throw new NotFoundException('Ong não encontrada');
+        throw new NotFoundException('Ong não encontrada!');
       }
 
       const response = this.ongRepository.findOne({
