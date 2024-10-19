@@ -64,13 +64,18 @@ Para rodar localmente o projeto é só seguir as instruções a seguir:
 ```bash
  docker run -d --name petmatch-db -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=root -e POSTGRES_DB=petmatch -p 5432:5432 postgres
 ```
-Obs: Se já seguiu o passo anterior e seu container do banco já está criado e executando e por algum motivo precisar parar para reiniciá-lo basta executar o comando:
+- Obs: Se já seguiu o passo anterior e seu container do banco já está criado e executando e por algum motivo precisar parar para reiniciá-lo basta executar o comando:
 ```bash
 docker start petmatch-db
 ```
 O projeto não funciona sem o banco de dados, se não seguir este passo ou parar o container docker a aplicação não iniciará.
 
-4. Inicie o projeto
+4. Rode as migrations
+```bash
+npm run migration:run
+```
+
+5. Inicie o projeto
 ```bash
 npm run start
 ```
@@ -80,7 +85,10 @@ Você pode conferir as rotas documentadas [aqui](http://localhost:3000/swagger-d
 
 No arquivo **petmatch.postman_collection.json** localizado na raiz do projeto você encontra a collection para testes do [Postman](https://www.postman.com/) e [Insomnia](https://insomnia.rest/).
 
-
+## 🧪 Testes
+Para rodar os testes unitários, execute o comando:
+```bash
+npm run test
+```
 ---
-
 Aproveite o projeto e fique à vontade para deixar sua ⭐ neste repositório.
