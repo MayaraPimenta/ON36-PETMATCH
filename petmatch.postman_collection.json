@@ -1,0 +1,484 @@
+{
+	"info": {
+		"_postman_id": "30658cd4-585f-42cf-8c2f-25532b25347f",
+		"name": "petmatch",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18132202"
+	},
+	"item": [
+		{
+			"name": "Ong",
+			"item": [
+				{
+					"name": "createOng",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Primeira Ong\",\r\n  \"address\": {\r\n    \"cep\": \"29167168\",\r\n    \"street\": \"Rua A\",\r\n    \"number\": 1,\r\n    \"neighborhood\": \"Colinas\",\r\n    \"city\": \"Serra\",\r\n    \"state\": \"ES\",\r\n    \"country\": \"Brasil\"\r\n  },\r\n  \"phone\": \"2799998888\",\r\n  \"cnpj\": \"12345678912346\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/ong",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"ong"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/ong/d46ecd9b-3f8d-4ee2-9560-44dd3dd1e3de",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"ong",
+								"d46ecd9b-3f8d-4ee2-9560-44dd3dd1e3de"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/ong",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"ong"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findOngById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/ong/239b6587-e310-4086-aa42-c8f1a815d52b",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"ong",
+								"239b6587-e310-4086-aa42-c8f1a815d52b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Primeira Ong\",\r\n  \"address\": {\r\n    \"cep\": \"29167168\",\r\n    \"street\": \"Rua A\",\r\n    \"number\": 111,\r\n    \"neighborhood\": \"Colinas\",\r\n    \"city\": \"Serra\",\r\n    \"state\": \"ES\",\r\n    \"country\": \"Brasil\"\r\n  },\r\n  \"phone\": \"2799998888\",\r\n  \"cnpj\": \"12345678912346\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/ong/ca099f27-8c6b-41ae-84cc-c98bfc2b193b",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"ong",
+								"ca099f27-8c6b-41ae-84cc-c98bfc2b193b"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pet",
+			"item": [
+				{
+					"name": "createPet",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Pet 3\",\r\n  \"species\": \"cachorro\",\r\n  \"size\": \"pequeno\",\r\n  \"vaccinated\": true,\r\n  \"neutered\": false,\r\n  \"age\": 9,\r\n  \"ongId\": \"239b6587-e310-4086-aa42-c8f1a815d52b\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/pet",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"pet"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/pet/a708de6e-14b1-4824-b856-0d0d872ee12f",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"pet",
+								"a708de6e-14b1-4824-b856-0d0d872ee12f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findAllPets",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/pet",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"pet"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findPetById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/pet/d66ffa46-fff0-4358-b45a-d591585dac8b",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"pet",
+								"d66ffa46-fff0-4358-b45a-d591585dac8b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getPetsByOng",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/pet/ong/368e643f-1c54-442e-8a8c-c3399684bed8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"pet",
+								"ong",
+								"368e643f-1c54-442e-8a8c-c3399684bed8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAttributes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/pet/attributes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"pet",
+								"attributes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetPetByQuery",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/pet/search?species=cachorro&size=pequeno&age=idoso&state=ES",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"pet",
+								"search"
+							],
+							"query": [
+								{
+									"key": "species",
+									"value": "cachorro"
+								},
+								{
+									"key": "size",
+									"value": "pequeno"
+								},
+								{
+									"key": "age",
+									"value": "idoso"
+								},
+								{
+									"key": "state",
+									"value": "ES"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getPetsByUser",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/pet/user/c170389e-a872-4135-b68d-aae827926c89",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"pet",
+								"user",
+								"c170389e-a872-4135-b68d-aae827926c89"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Pet 2\",\r\n  \"size\": \"pequeno\",\r\n  \"species\": \"cachorro\",\r\n  \"vaccinated\": true,\r\n  \"neutered\": false,\r\n  \"age\": 9,\r\n  \"ongId\": \"239b6587-e310-4086-aa42-c8f1a815d52b\",\r\n  \"id\": \"e1a19202-91f2-40b5-abeb-f487fc5e0354\",\r\n  \"userId\": \"79a2640d-611a-467d-bdea-3390b2595dbc\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/pet/e1a19202-91f2-40b5-abeb-f487fc5e0354",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"pet",
+								"e1a19202-91f2-40b5-abeb-f487fc5e0354"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "createUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Usuário 4\",\r\n  \"address\": {\r\n    \"cep\": \"29167168\",\r\n    \"street\": \"rua\",\r\n    \"number\": 111,\r\n    \"neighborhood\": \"bairro\",\r\n    \"city\": \"cidade\",\r\n    \"state\": \"Espírito Santo\",\r\n    \"country\": \"Brasil\"\r\n  },\r\n  \"phone\": \"99998888\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteUser",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/user/e9d0a906-d011-41ff-a76a-78d9d036f00f",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"e9d0a906-d011-41ff-a76a-78d9d036f00f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findAllUsers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FindUserById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/user/e9d0a906-d011-41ff-a76a-78d9d036f00f",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"e9d0a906-d011-41ff-a76a-78d9d036f00f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateUser",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Usuário 4.1\",\r\n  \"address\": {\r\n    \"cep\": \"29167168\",\r\n    \"street\": \"rua\",\r\n    \"number\": 111,\r\n    \"neighborhood\": \"bairro\",\r\n    \"city\": \"cidade\",\r\n    \"state\": \"Espírito Santo\",\r\n    \"country\": \"Brasil\"\r\n  },\r\n  \"phone\": \"99998888\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/user/e9d0a906-d011-41ff-a76a-78d9d036f00f",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"e9d0a906-d011-41ff-a76a-78d9d036f00f"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "bruno",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		}
+	]
+}
