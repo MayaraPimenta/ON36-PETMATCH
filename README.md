@@ -1,73 +1,86 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+<h1 align="center">PETMATCH API</h1>
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## Description
+<div align="center">
+  <strong>🚀 Descrição</strong>
+</div>
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+<div align="center">
+  <p>Uma api que facilita a união de futuros tutores e animais para adoção🎉</p>
+  <p>Aqui você encontrará informações sobre o projeto, tecnologias utilizadas, instruções para configurar o ambiente de desenvolvimento e muito mais.</p>
+  <p>Explore, colabore e divirta-se! 😄</p>
+</div>
 
-## Installation
+
+## 📖 Índice
+
+- [Visão Geral](#visão-geral)
+- [Tecnologias](#tecnologias)
+- [Configuração do Ambiente](#configuração-do-ambiente)
+- [Como Contribuir](#como-contribuir)
+- [Licença](#licença)
+
+
+## 🔭 Visão Geral
+
+Este projeto visa criar uma plataforma de adoção de animais que utiliza uma experiência de usuário semelhante ao Tinder, onde adotantes podem encontrar animais com base em características personalizadas. O sistema permite que os usuários que desejam adotar definam atributos específicos, como porte, idade e lozalização, e o sistema realiza uma busca, retornando os animais que mais se adequam às preferências, otimizando a correspondência entre adotantes e animais disponíveis para adoção.
+
+
+## 💻 Tecnologias
+
+- Nest.js
+- Typescript
+- Typeorm
+- Docker
+- Postgres
+- Swagger
+- AWS
+
+
+## 📚 Pré-requisitos
+
+É ideal que a versão do [node](https://nodejs.org/pt) seja igual ou superior a 18 e tenha instalado a ultima versão do [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).
+
+Para rodar o banco de dados localmente é necessário o programa [docker](https://www.docker.com/get-started/).
+
+
+## ⚙️ Configuração do Ambiente
+
+Para rodar localmente o projeto é só seguir as instruções a seguir:
+
+1. Clone o projeto em sua máquina
 
 ```bash
-$ npm install
+ git clone https://github.com/MayaraPimenta/ON36-PETMATCH.git
 ```
 
-## Running the app
-
+2. Abra o projeto e instale as dependências
 ```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+ npm install
 ```
 
-## Test
-
+3. Para rodar o banco de dados usamos o docker, para iniciar o banco pela **primeira vez** execute o comando:
 ```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+ docker run -d --name petmatch-db -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=root -e POSTGRES_DB=petmatch -p 5432:5432 postgres
 ```
+Obs: Se já seguiu o passo anterior e seu container do banco já está criado e executando e por algum motivo precisar parar para reiniciá-lo basta executar o comando:
+```bash
+docker start petmatch-db
+```
+O projeto não funciona sem o banco de dados, se não seguir este passo ou parar o container docker a aplicação não iniciará.
 
-## Support
+4. Inicie o projeto
+```bash
+npm run start
+```
+O projeto está sendo executado na porta [3000](http://localhost:3000/).
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+Você pode conferir as rotas documentadas [aqui](http://localhost:3000/swagger-doc).
 
-## Stay in touch
+No arquivo **petmatch.postman_collection.json** localizado na raiz do projeto você encontra a collection para testes do [Postman](https://www.postman.com/) e [Insomnia](https://insomnia.rest/).
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
 
-## License
+---
 
-Nest is [MIT licensed](LICENSE).
+Aproveite o projeto e fique à vontade para deixar sua ⭐ neste repositório.
