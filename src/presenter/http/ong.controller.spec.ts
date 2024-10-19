@@ -37,6 +37,29 @@ describe('OngController', () => {
         id: 'unique-id',
         ...createOngDto,
       })),
+      findAll: jest.fn().mockResolvedValue([
+        {
+          id: 'ong1',
+          name: 'ONG 1',
+          address: { ...createOngDto.address },
+          phone: '99998888',
+          cnpj: '12345678912346',
+        },
+        {
+          id: 'ong2',
+          name: 'ONG 2',
+          address: { ...createOngDto.address },
+          phone: '99997777',
+          cnpj: '12345678912347',
+        },
+      ]),
+      findOne: jest.fn().mockResolvedValue({
+        id: 'ong1',
+        name: 'ONG 1',
+        address: { ...createOngDto.address },
+        phone: '99998888',
+        cnpj: '12345678912346',
+      }),
     };
 
     const module: TestingModule = await Test.createTestingModule({
@@ -89,6 +112,35 @@ describe('OngController', () => {
         expect(res.body.address).toStrictEqual(createOngDto.address);
         expect(res.body.phone).toStrictEqual(createOngDto.phone);
         expect(res.body.cnpj).toStrictEqual(createOngDto.cnpj);
+      });
+  });
+
+  it('should return status 200', () => {
+    return request(app.getHttpServer()).get('/ong').send().expect(200);
+  });
+
+  it('should return an array of Ongs', () => {
+    return request(app.getHttpServer())
+      .get('/ong')
+      .send()
+      .expect((res) => {
+        expect(Array.isArray(res.body)).toBe(true);
+        expect(res.body).toEqual([
+          {
+            id: 'ong1',
+            name: 'ONG 1',
+            address: { ...createOngDto.address },
+            phone: '99998888',
+            cnpj: '12345678912346',
+          },
+          {
+            id: 'ong2',
+            name: 'ONG 2',
+            address: { ...createOngDto.address },
+            phone: '99997777',
+            cnpj: '12345678912347',
+          },
+        ]);
       });
   });
 });
